@@ -1,15 +1,39 @@
-<?php 
+<?php
 include("conexion.php");
 
-$nombre = $_POST['nombre'];
-$Imagen = addslashes(file_get_contents($_FILES['myfile']['tmp_name']));
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST['nombre'];
 
-$query = "INSERT INTO imagen(nombre, imagenn) VALUES('$nombre', '$Imagen')" ;
-$resultado = $conexion -> query($query);
-if($resultado){
-echo "si se inserto";
-}else{
-    echo "no se inserto";
+    // Manejar subida de una sola imagen
+    if (!empty($_FILES['singleFile']['name'])) {
+        $imagenTemp = addslashes(file_get_contents($_FILES['singleFile']['tmp_name']));
+        $query = "INSERT INTO imagen (nombre, imagenn) VALUES ('$nombre', '$imagenTemp')";
+        $resultado = $conexion->query($query);
+
+        if ($resultado) {
+            echo "Imagen subida correctamente.<br>";
+        } else {
+            echo "Error al subir la imagen.<br>";
+        }
+    }
+
+    // Manejar subida de múltiples imágenes
+    if (!empty($_FILES["multiFiles"]["name"])) {
+        foreach ($_FILES["multiFiles"]["tmp_name"] as $key => $tmp_name) {
+            $imagenTemp = addslashes(file_get_contents($_FILES['multiFiles']['tmp_name'][$key]));
+            $query = "INSERT INTO imagen (nombre, imagenn) VALUES ('$nombre', '$imagenTemp')";
+            $resultado = $conexion->query($query);
+
+            if ($resultado) {
+                echo "Imagen subida correctamente.<br>";
+            } else {
+                echo "Error al subir imagen.<br>";
+            }
+        }
+    } elseif (empty($_FILES['singleFile']['name'])) {
+        echo "No se han seleccionado imágenes.<br>";
+    }
+} else {
+    echo "Error en la solicitud.<br>";
 }
-
 ?>
