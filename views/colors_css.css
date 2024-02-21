@@ -1,0 +1,60 @@
+:root{
+   
+
+    --colorScrollbar:linear-gradient(#cfb312d3,#a06c0b88);
+    --colorScrollbar_Hover:linear-gradient(#ff0000c8,#000000);
+  
+    --colorRadient_base: linear-gradient(#f5d313df,#a06c0bb1);
+    --colorRadient_base-inversa: linear-gradient(#9204ffb8,#f6ac5c);
+    --colorRadient_base-hover: linear-gradient(#3700ff92,#fa7900bd);
+    
+    --color_base: rgb(255 123 0);
+    --color_header:  linear-gradient(#e58013,#8609e5);
+    --color_base-hover: rgb(151 73 0);
+    --color_base-border: rgb(101 101 101);
+    
+    --colorTextos:rgb(111 112 112);
+  
+    --color_lista_entidad: rgb(103 58 183 / 36%);
+    --color_lista_entidad_off: rgb(198 0 0 / 61%);
+    --color_lista_entidad-hover: rgb(103 58 183 / 60%);
+    --color_lista_entidad-border: rgb(103 58 183);
+    --color_lista_entidad_rojo: rgb(255 78 78);
+    
+    --entidad_juguete: linear-gradient(#fb72479c,#ff572200,#8609e54a);
+  
+    --fondo_portal_carrito: linear-gradient(#1000f490,#3d36ff98,#625df81c);
+    --fondo_cuenta_carrito: linear-gradient(#8200f4a1,#4b15df86,#1109eb9c);
+  
+    --tablas: rgba(187, 86, 255, 0.479);
+    --tablas_encabezados: rgb(153, 0, 255);
+    --botones_before:  rgb(247, 106, 5);
+    --botones_after:  rgb(255, 164, 99);
+    --nota_cobro: rgba(254, 123, 29, 0.934);
+  
+    --fondo_portal_carrito: linear-gradient(#1000f490,#3d36ff98,#625df81c);
+    --fondo_cuenta_carrito: linear-gradient(#8200f4a1,#4b15df86,#1109eb9c);
+  
+    --tablas: rgba(187, 86, 255, 0.479);
+    --tablas_encabezados: rgb(153, 0, 255);
+    --botones_before:  rgb(247, 106, 5);
+    --botones_after:  rgb(255, 164, 99);
+    --nota_cobro: rgba(254, 123, 29, 0.934);
+  }
+  /* Estilos scrollbar */
+  ::-webkit-scrollbar {
+    width: .8vw; /* ancho barra */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #dcdcdc; /* color fondo barra */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--colorScrollbar); /* color barra */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--colorScrollbar_Hover); /* color barra hover */
+  }
+  
