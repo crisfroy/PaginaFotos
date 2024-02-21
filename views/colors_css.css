@@ -1,15 +1,15 @@
 :root{
    
 
-    --colorScrollbar:linear-gradient(#cfb312d3,#a06c0b88);
-    --colorScrollbar_Hover:linear-gradient(#ff0000c8,#000000);
+    --colorScrollbar:linear-gradient(#d90404d3,#430101a3);
+    --colorScrollbar_Hover:linear-gradient(#d90404ee,#430101cf);
   
-    --colorRadient_base: linear-gradient(#f5d313df,#a06c0bb1);
-    --colorRadient_base-inversa: linear-gradient(#9204ffb8,#f6ac5c);
-    --colorRadient_base-hover: linear-gradient(#3700ff92,#fa7900bd);
+    --colorRadient_base: linear-gradient(#ff2e2e,#390303cc);
+    --colorRadient_base-inversa: linear-gradient(#390303cc,#ff2e2e);
+    --colorRadient_base-hover: linear-gradient(#fa3737,#6a0000);
     
-    --color_base: rgb(255 123 0);
-    --color_header:  linear-gradient(#e58013,#8609e5);
+    --color_base: rgb(255, 35, 35);
+    --color_header:  linear-gradient(#f93636,#470000);
     --color_base-hover: rgb(151 73 0);
     --color_base-border: rgb(101 101 101);
     
@@ -21,7 +21,7 @@
     --color_lista_entidad-border: rgb(103 58 183);
     --color_lista_entidad_rojo: rgb(255 78 78);
     
-    --entidad_juguete: linear-gradient(#fb72479c,#ff572200,#8609e54a);
+    --entidad_juguete: linear-gradient(#ff0000ea,#e800004c,#0000004c);
   
     --fondo_portal_carrito: linear-gradient(#1000f490,#3d36ff98,#625df81c);
     --fondo_cuenta_carrito: linear-gradient(#8200f4a1,#4b15df86,#1109eb9c);
