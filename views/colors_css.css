@@ -21,7 +21,8 @@
     --color_lista_entidad-border: rgb(103 58 183);
     --color_lista_entidad_rojo: rgb(255 78 78);
     
-    --entidad_juguete: linear-gradient(#ff0000ea,#e800004c,#0000004c);
+    --entidad_servicio: linear-gradient(#f39999ea,#d08d8d4c,#0000004c);
+    --Fondo: linear-gradient(#fce3e3fe,#d4b2b24c,#413c3c62);
   
     --fondo_portal_carrito: linear-gradient(#1000f490,#3d36ff98,#625df81c);
     --fondo_cuenta_carrito: linear-gradient(#8200f4a1,#4b15df86,#1109eb9c);
