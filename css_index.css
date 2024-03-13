@@ -145,6 +145,19 @@ header ul li img{
 	color: white;
 
 }
+.boton-flotante {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior de la ventana del navegador */
+    right: 20px; /* Distancia desde el borde derecho de la ventana del navegador */
+    background-color: var(--color_base); /* Color de fondo del botón */
+    color: #fff; /* Color del texto */
+    border: 3px solid #0000004f;
+    border-radius: 25%; /* Forma circular */
+    padding: 15px; /* Espacio interno */
+    font-size: 18px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    z-index: 1001; /* Asegura que el botón flotante esté por encima de otros elementos */
+}
 #servicio1{
 	background: var(--entidad_servicio), url(juguete-caballo/poster_caballo.webp);
 	background-size: 100% 100%;
