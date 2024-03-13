@@ -137,8 +137,13 @@ header ul li img{
     max-width: 100%; /* Ajusta el ancho máximo de la imagen */
     height: auto; /* Para mantener la proporción de aspecto */
     /* Ajusta el tamaño como desees */
-    width: 600px; 
-    height: 600px; 
+    width: 500px; 
+    height: 500px; 
+}
+.carousel .item p{
+
+	color: white;
+
 }
 #servicio1{
 	background: var(--entidad_servicio), url(juguete-caballo/poster_caballo.webp);
