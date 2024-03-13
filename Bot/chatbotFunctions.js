@@ -12,7 +12,7 @@ function sendMessage() {
     var botResponse = getBotResponse(userInput);
 
     // Agregar la respuesta del bot al área de chat
-    chatArea.innerHTML += 'Chatbot: ' + botResponse + '<br>';
+    chatArea.innerHTML += 'Hespi: ' + botResponse + '<br>';
 
     // Limpiar el campo de entrada después de enviar el mensaje
     document.getElementById('userInput').value = '';
@@ -31,12 +31,16 @@ function getBotResponse(userInput) {
     var responses = {
         "hello": "Hi",
         "hola": "Hola buen día, ¿en qué puedo ayudarte?",
-        "que puedo hacer": "Puedes usar las siguientes funciones: quiero ir al menu (te movera al menu) quiero ir a los pedidos (te movera a los pedidos)",
-        "como funciona":"Puedes usar las siguientes funciones: quiero ir al menu (te movera al menu) quiero ir a los pedidos (te movera a los pedidos)",
-        "quiero ir al menu": redirectTo('Menu.html', "¡Te llevaré al menú!"),
+        "que puedo hacer": "Puedes usar las siguientes funciones: quiero ir al menu (te movera al menu) quiero un servicio (te movera a los servicios)",
+        "como funciona":"Puedes usar las siguientes funciones: quiero ir al menu (te movera al menu) quiero un servicio (te movera a los servicios)",
+        "como agendo una cita":"Puedes visitar nuestra pagina web con la informacion necesaria, si quieres que te lleve alli escribeme 'Lleveme al menu'",
+        "como saco una cita":"Puedes visitar nuestra pagina web con la informacion necesaria, si quieres que te lleve alli escribeme 'Lleveme al menu'",
+        "sacar cita":"Puedes visitar nuestra pagina web con la informacion necesaria, si quieres que te lleve alli escribeme 'Lleveme al menu'",
+        "quiero ir al menu": redirectTo('/', "¡Te llevaré al menú!"),
+        "menu": redirectTo('/', "¡Te llevaré al menú!"),
+        "interfaz principal": redirectTo('/', "¡Te llevaré al menú!"),
         "quiero ir a los pedidos": redirectTo('tortas.html', "¡Te llevaré a los pedidos!"),
-        "pedidos": redirectTo('tortas.html', "¡Te llevaré a los pedidos!"),
-        "como te llamas": "Me llamo Chatbot. Estoy aquí para ayudarte.",
+        "como te llamas": "Me llamo Hespi. Estoy aquí para ayudarte.",
         "cuál es tu función": "Soy un asistente virtual diseñado para responder preguntas y ayudarte a navegar por el sistema.",
         "hay alguien ahí": "¡Sí! Estoy aquí para ayudarte. ¿En qué puedo asistirte hoy?",
         "qué haces": "Estoy aquí para responder preguntas y brindarte ayuda con el sistema.",
@@ -52,7 +56,6 @@ function getBotResponse(userInput) {
         "cómo puedo contactarte": "Puedes contactarme a través de este chat o utilizando la información de contacto proporcionada en la página de soporte.",
         "qué tipo de preguntas puedes responder": "Puedo responder preguntas sobre funciones del sistema, resolver problemas comunes y proporcionar asistencia general.",
         "dónde puedo encontrar más ayuda": "Puedes encontrar más ayuda en la sección de preguntas frecuentes del sitio web o contactando al equipo de soporte.",
-        "cómo puedo restablecer mi contraseña": "Puedes restablecer tu contraseña yendo a la página de inicio de sesión y siguiendo las instrucciones para restablecer la contraseña.",
     // Agrega más preguntas y respuestas aquí...
     };
 
