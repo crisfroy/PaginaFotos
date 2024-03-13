@@ -12,6 +12,7 @@ header{
 	box-shadow: 0px 1px 3px #000;
 	justify-content: center; 
     align-items: center;
+	z-index: 1000;
 }
 header ul{
 	
@@ -29,12 +30,15 @@ header ul li a{
 	color: #fff; 	
 	display: block;
 	text-decoration: none;
+	width: 60px; /* Tamaño fijo del botón */
+    height: 60px; /* Tamaño fijo del botón */
+    line-height: 40px; /* Alinea verticalmente el texto */
 }
 header ul li a:hover{
 	background: var(--colorRadient_base);
 	margin: 5px;
 	border-radius: 5px;
-	padding: 5px;
+	padding: 10px;
 }
 
 header ul li a img{
@@ -124,7 +128,18 @@ header ul li img{
 	color :#000;
 
 }
+.item{
 
+
+
+}
+.carousel .item img {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* Para mantener la proporción de aspecto */
+    /* Ajusta el tamaño como desees */
+    width: 600px; 
+    height: 600px; 
+}
 #servicio1{
 	background: var(--entidad_servicio), url(juguete-caballo/poster_caballo.webp);
 	background-size: 100% 100%;
