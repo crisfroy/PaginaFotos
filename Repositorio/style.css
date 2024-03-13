@@ -1,4 +1,19 @@
+@import url('../colors_css.css');
+
 *{
-    margin: 0;
-    padding: 0;
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial;
+}
+header{
+	width: 100%;
+    padding: 20px;
+	background: var(--colorRadient_base);
+	position: fixed;
+	box-shadow: 0px 1px 3px #000;
+	justify-content: center; 
+    align-items: center;
+}
+#contenido{
+    padding: 100px 50px;
 }
