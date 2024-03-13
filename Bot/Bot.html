@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('Imagenes/fondouno.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #chatArea {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #fff; /* Fondo blanco */
+        }
+        #userInput {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 130px); /* Tamaño ajustado */
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chatArea"></div>
+    <input type="text" id="userInput" placeholder="Escribe aquí...">
+    <button id="sendButton">Enviar</button>
+    <div class="btn-container">
+        <button class="btn" id="btn-volver" onclick="redirectToMain()">Volver</button>
+    </div>
+    <script src="chatbotFunctions.js"></script>
+    <script>
+        // Función para redirigir a la página principal
+        function redirectToMain() {
+            window.location.href = 'interfazPrincipal.html';
+        }
+    </script>
+    
+</body>
+</html>
