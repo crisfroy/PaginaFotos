@@ -11,37 +11,69 @@
             margin-right: auto;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('Imagenes/fondouno.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(#ff2e2e,#390303cc); /* Cambiado a variable */
         }
         #chatArea {
             height: 300px;
             overflow-y: scroll;
-            border: 1px solid #ccc;
+            border: 1px solid var(--color_base-border); /* Cambiado a variable */
             padding: 10px;
             margin-bottom: 20px;
-            background-color: #fff; /* Fondo blanco */
+            background-color: var(--color_lista_entidad); /* Cambiado a variable */
         }
         #userInput {
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid var(--color_base-border); /* Cambiado a variable */
             border-radius: 5px;
             width: calc(100% - 130px); /* Tamaño ajustado */
         }
         button {
             padding: 10px;
-            background-color: #007bff;
+            background-color: var(--color_base); /* Cambiado a variable */
             border: none;
             color: #fff;
             cursor: pointer;
             border-radius: 5px;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: var(--color_base-hover); /* Cambiado a variable */
         }
     </style>
+    <style>
+      :root{
+         --colorScrollbar: linear-gradient(#d90404d3,#430101a3);
+         --colorScrollbar_Hover: linear-gradient(#d90404ee,#430101cf);
+         --colorRadient_base: linear-gradient(#ff2e2e,#390303cc);
+         --colorRadient_base-inversa: linear-gradient(#390303cc,#ff2e2e);
+         --color_base: rgb(255, 35, 35);
+         --color_base-hover: rgb(151 73 0);
+         --color_base-border: rgb(101 101 101);
+         --color_lista_entidad: rgb(103 58 183 / 36%);
+         --color_lista_entidad_off: rgb(198 0 0 / 61%);
+         --color_lista_entidad-hover: rgb(103 58 183 / 60%);
+         --color_lista_entidad-border: rgb(103 58 183);
+         --entidad_servicio: linear-gradient(#f39999ea,#d08d8d4c,#0000004c);
+         --Fondo: linear-gradient(#fce3e3fe,#d4b2b24c,#413c3c62);
+         --tablas: rgba(187, 86, 255, 0.479);
+         --tablas_encabezados: rgb(153, 0, 255);
+         --botones_before:  rgb(247, 106, 5);
+         --botones_after:  rgb(255, 164, 99);
+         --nota_cobro: rgba(254, 123, 29, 0.934);
+      }
+      /* Estilos scrollbar */
+      ::-webkit-scrollbar {
+         width: .8vw; /* ancho barra */
+      }
+      ::-webkit-scrollbar-track {
+         background: #dcdcdc; /* color fondo barra */
+      }
+      ::-webkit-scrollbar-thumb {
+         background: var(--colorScrollbar); /* color barra */
+      }
+      ::-webkit-scrollbar-thumb:hover {
+         background: var(--colorScrollbar_Hover); /* color barra hover */
+      }
+   </style>
 </head>
 <body>
     <h1>Chatbot</h1>
@@ -55,9 +87,8 @@
     <script>
         // Función para redirigir a la página principal
         function redirectToMain() {
-            window.location.href = 'interfazPrincipal.html';
+            window.location.href = '/';
         }
     </script>
-    
 </body>
 </html>
