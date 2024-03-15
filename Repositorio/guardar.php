@@ -11,7 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $resultado = $conexion->query($query);
 
         if ($resultado) {
-            echo "Imagen subida correctamente.<br>";
+            header("Location: index.php");
+            exit();
         } else {
             echo "Error al subir la imagen.<br>";
         }
@@ -25,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultado = $conexion->query($query);
 
             if ($resultado) {
-                echo "Imagen subida correctamente.<br>";
+                header("Location: index.php");
+                exit();
             } else {
                 echo "Error al subir imagen.<br>";
             }

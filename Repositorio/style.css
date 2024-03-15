@@ -16,4 +16,22 @@ header{
 }
 #contenido{
     padding: 100px 50px;
+	display: flex;
+}
+#contenido div{
+	padding: 40px;
+}
+#lista_fotos{
+	list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#lista_fotos li{
+	margin: 20px;
+}
+#lista_fotos .imagen{
+	width: 400px;
+	padding: 10px;
+	box-shadow: 0 0 10px 1px #000;
 }
