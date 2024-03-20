@@ -158,16 +158,20 @@ header ul li img{
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     z-index: 1001; /* Asegura que el botón flotante esté por encima de otros elementos */
 }
+.boton-flotante img {
+    width: 70px; /* Ajusta el ancho de la imagen según sea necesario */
+    height: 50px; /* Mantén la proporción de aspecto */
+}
 #servicio1{
-	background: var(--entidad_servicio), url(juguete-caballo/poster_caballo.webp);
+	background: var(--entidad_servicio), url(materiales/eventos.gif);
 	background-size: 100% 100%;
 }
 #servicio2{
-	background: var(--entidad_servicio), url(juguete-Astronauta/poster_astronauta.webp);
+	background: var(--entidad_servicio), url(views/fotos/imgUno.jpeg);
 	background-size: 100% 100%;
 }
 #servicio3{
-	background: var(--entidad_servicio), url(juguete-Robot/poster_robot.webp);
+	background: var(--entidad_servicio), url(views/fotos/imgSeis.jpeg);
 	background-size: 100% 100%;
 }
 
