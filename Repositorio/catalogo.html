@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Rentas</title>
+    <style>
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-label {
+            margin-right: 10px;
+        }
+        .checkbox-input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>¿Qué desea rentar?</h2>
+
+<form id="rentaForm">
+    <div class="checkbox-container">
+        <label class="checkbox-label" for="toroMecanico">Toro Mecánico</label>
+        <input class="checkbox-input" type="checkbox" id="toroMecanico" name="renta" value="toroMecanico">
+        <img src="https://via.placeholder.com/20" alt="Palomita" id="toroMecanicoCheck" style="display: none;">
+    </div>
+    <div class="checkbox-container">
+        <label class="checkbox-label" for="inflable">Inflable</label>
+        <input class="checkbox-input" type="checkbox" id="inflable" name="renta" value="inflable">
+        <img src="https://via.placeholder.com/20" alt="Palomita" id="inflableCheck" style="display: none;">
+    </div>
+</form>
+
+<script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const checkboxId = this.id + 'Check';
+            const checkboxImage = document.getElementById(checkboxId);
+            checkboxImage.style.display = this.checked ? 'inline' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
