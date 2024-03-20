@@ -73,5 +73,35 @@
     <a href="administrador.html" class="btn-secondary">Volver</a>
 </form>
 
+<script>
+    // Evento de envío del formulario
+    document.getElementById("productForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe normalmente
+
+        // Obtener los datos del formulario
+        const formData = new FormData(this);
+
+        // Enviar los datos al servidor mediante una petición fetch
+        fetch("AgregarProductos.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al agregar el producto");
+            }
+            return response.text(); // Leer la respuesta como texto
+        })
+        .then(message => {
+            alert(message); // Mostrar el mensaje de respuesta
+            // Limpiar el formulario después de agregar el producto
+            document.getElementById("productForm").reset();
+        })
+        .catch(error => {
+            alert(error.message);
+        });
+    });
+</script>
+
 </body>
 </html>

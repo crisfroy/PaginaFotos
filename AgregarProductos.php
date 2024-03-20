@@ -33,13 +33,17 @@ if ($stmt === false) {
 }
 
 // Enlazar parámetros a la consulta preparada
-$stmt->bind_param("ss", $producto, $precio);
+$stmt->bind_param("sd", $producto, $precio); // "s" para cadena, "d" para número flotante
 
 // Ejecutar la consulta preparada
 if ($stmt->execute()) {
-    echo "Producto agregado correctamente.";
+    $confirmationMessage = "Producto agregado correctamente.";
+    // Notificación en JavaScript
+    echo "('$confirmationMessage')";
 } else {
-    echo "Error al agregar el producto: " . $stmt->error;
+    $confirmationMessage = "Error al agregar el producto: " . $stmt->error;
+    // Notificación en JavaScript
+    echo "<script>alert('$confirmationMessage');</script>";
 }
 
 // Cerrar la declaración y la conexión a la base de datos
