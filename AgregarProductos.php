@@ -12,8 +12,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Verificar la conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
-} else {
-    echo "Conexión exitosa"; // Agregamos este mensaje para verificar la conexión
 }
 
 // Obtener datos del formulario
@@ -25,18 +23,26 @@ if (empty($producto) || empty($precio)) {
     die("Error: Todos los campos del formulario son obligatorios.");
 }
 
-// Insertar los datos en la base de datos
+// Preparar la consulta SQL para insertar datos en la base de datos
 $sql = "INSERT INTO productos (producto, precio) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
+
+// Verificar si la preparación de la consulta fue exitosa
+if ($stmt === false) {
+    die("Error al preparar la consulta: " . $conn->error);
+}
+
+// Enlazar parámetros a la consulta preparada
 $stmt->bind_param("ss", $producto, $precio);
 
+// Ejecutar la consulta preparada
 if ($stmt->execute()) {
     echo "Producto agregado correctamente.";
 } else {
     echo "Error al agregar el producto: " . $stmt->error;
 }
 
-// Cerrar declaración y conexión a la base de datos
+// Cerrar la declaración y la conexión a la base de datos
 $stmt->close();
 $conn->close();
 
