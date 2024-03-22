@@ -6,14 +6,18 @@
 <title>Formulario de Ejemplo</title>
 <style>
 
+*{
+    margin: 0%;
+    padding: 0%;
+}
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        color: #333;
+        background-color: #333;
+        color: #111010;
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
         min-height: 100vh;
     }
@@ -21,13 +25,23 @@
     .container {
         width: 400px;
         padding: 20px;
-        background-color: #d9534f;
+        background-color: #da3a34;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .navbar {
+        background-color: #571515;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
     }
 
     h1 {
-        background-color: #d9534f; /* Color rojo */
+        background-color: #da3a34; /* Color rojo */
         color: white;
         padding: 15px;
         margin-bottom: 20px;
@@ -38,7 +52,7 @@
         background-color: #d9534f; /* Color rojo */
         padding: 20px;
         margin: 20px;
-        border-radius: 10px;
+        border-radius: 0px;
         text-align: center;
     }
 
@@ -54,7 +68,7 @@
     button {
         background-color: #c9302c; /* Color rojo oscuro */
         color: white;
-        background-color: #c9302c;
+        background-color: #c70b05;
         border: none;
         padding: 10px 20px;
         margin: 10px;
@@ -70,6 +84,10 @@
 </style>
 </head>
 <body>
+
+<div class="navbar">
+    <button id="daltonismo-btn" class="daltonismo-btn">Daltonismo</button>
+</div>
 
 <div class="container">
   <h1>Eventos</h1>
@@ -99,6 +117,20 @@ function Cancelar() {
 function volver() {
     window.location.href = "../index.html";
 }
+
+const daltonismoBtn = document.getElementById('daltonismo-btn');
+const container = document.querySelector('.container');
+
+let isDaltonismo = false;
+
+daltonismoBtn.addEventListener('click', () => {
+  isDaltonismo = !isDaltonismo;
+  if (isDaltonismo) {
+    document.body.style.filter = "grayscale(100%)";
+  } else {
+    document.body.style.filter = "none";
+  }
+});
 </script>
 
 </body>
