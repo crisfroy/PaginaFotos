@@ -118,7 +118,7 @@
     <input type="text" id="direccion" name="direccion">
 
     <button type="button" onclick="" data-translate="agregar">Agregar Evento</button>
-    <button type="button" onclick="volver()" data-translate="volver">Volver</button>
+    <button type="button" onclick="redirectToAdminPage()" data-translate="volver">Volver</button>
     <button type="button" onclick="Cancelar()" data-translate="cancelar">Cancelar</button>
   </form>
 </div>
@@ -177,6 +177,12 @@ daltonismoBtn.addEventListener('click', () => {
     document.body.style.filter = "none";
   }
 });
+
+function redirectToAdminPage() {
+    // Reemplaza 'url-de-tu-pagina-administrador' con la URL real de tu página de administrador
+    window.location.href = '../';
+}
+
 </script>
 
 </body>
