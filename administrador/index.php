@@ -70,7 +70,6 @@
     
     <table>
         <tr>
-          <th>ID Evento</th>
           <th>Nombre</th>
           <th>Fecha</th>
           <th>Matrícula</th>
@@ -91,14 +90,13 @@
         }
       
         // Consulta para obtener los eventos
-        $sql = "SELECT id_evento, nombre, fecha, matricula, direccion FROM evento";
+        $sql = "SELECT nombre, fecha, matricula, direccion FROM evento";
         $result = $conn->query($sql);
       
         if ($result->num_rows > 0) {
           // Mostrar los eventos en la tabla
           while($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row["id_evento"] . "</td>";
             echo "<td>" . $row["nombre"] . "</td>";
             echo "<td>" . $row["fecha"] . "</td>";
             echo "<td>" . $row["matricula"] . "</td>";
