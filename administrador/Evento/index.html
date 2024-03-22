@@ -4,7 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulario de Ejemplo</title>
-<link rel="stylesheet" href="css_index.css">
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 400px;
+        padding: 20px;
+        background-color: #d9534f;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        background-color: #d9534f; /* Color rojo */
+        color: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    div {
+        background-color: #d9534f; /* Color rojo */
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #e72f29;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #c9302c; /* Color rojo oscuro */
+        color: white;
+        background-color: #c9302c;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #a52a25; /* Color rojo más oscuro al pasar el mouse */
+    }
+
+</style>
 </head>
 <body>
 
@@ -23,13 +86,18 @@
     <label for="direccion">Direccion:</label>
     <input type="text" id="direccion" name="direccion">
 
-    <button type="button" onclick="limpiarFormulario()">Cancelar</button>
+    <button type="button" onclick="">Agregar Evento</button>
+    <button type="button" onclick="volver()">Volver</button>
+    <button type="button" onclick="Cancelar()">Cancelar</button>
   </form>
 </div>
 
 <script>
-function limpiarFormulario() {
+function Cancelar() {
   document.getElementById("evento").reset();
+}
+function volver() {
+    window.location.href = "../index.html";
 }
 </script>
 
