@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-03-2024 a las 02:36:55
+-- Tiempo de generación: 22-03-2024 a las 02:54:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `imagenescano`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contacto`
+--
+
+CREATE TABLE `contacto` (
+  `id_contacto` int(13) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellidos` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefono` varchar(13) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `direccion` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -42,7 +58,7 @@ CREATE TABLE `evento` (
 --
 
 CREATE TABLE `imagen` (
-  `id` int(11) NOT NULL,
+  `id_imagen` int(10) NOT NULL,
   `fecha` datetime NOT NULL DEFAULT current_timestamp(),
   `imagenn` longblob NOT NULL,
   `id_evento` int(10) NOT NULL
@@ -61,17 +77,14 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id_producto`, `producto`, `precio`) VALUES
-(1, 'Toro', 400.00),
-(2, 'Sillas', 1000.00),
-(3, 'mesas', 400.00);
-
---
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD PRIMARY KEY (`id_contacto`);
 
 --
 -- Indices de la tabla `evento`
@@ -83,7 +96,7 @@ ALTER TABLE `evento`
 -- Indices de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_imagen`),
   ADD KEY `id_evento` (`id_evento`);
 
 --
@@ -97,32 +110,32 @@ ALTER TABLE `productos`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  MODIFY `id_contacto` int(13) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id_evento` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_evento` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imagen` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `evento`
---
-ALTER TABLE `evento`
-  ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `imagen` (`id_evento`);
 
 --
 -- Filtros para la tabla `imagen`
