@@ -81,32 +81,45 @@
         background-color: #a52a25; /* Color rojo más oscuro al pasar el mouse */
     }
 
+    .idioma-btn {
+        background-color: #e91e17; /* Color rojo oscuro */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
 </style>
 </head>
 <body>
 
 <div class="navbar">
     <button id="daltonismo-btn" class="daltonismo-btn">Daltonismo</button>
+    <button id="espanol-btn" class="idioma-btn" onclick="changeLanguage('es')">Español</button>
+    <button id="ingles-btn" class="idioma-btn" onclick="changeLanguage('en')">Inglés</button>
 </div>
 
 <div class="container">
-  <h1>Eventos</h1>
+  <h1 data-translate="eventos">Eventos</h1>
   <form id="evento">
-    <label for="nombre">Nombre:</label>
+    <label for="nombre" data-translate="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre">
 
-    <label for="fecha">Fecha:</label>
+    <label for="fecha" data-translate="fecha">Fecha:</label>
     <input type="text" id="fecha" name="fecha">
 
-    <label for="matricula">Matricula:</label>
+    <label for="matricula" data-translate="matricula">Matricula:</label>
     <input type="text" id="matricula" name="matricula">
 
-    <label for="direccion">Direccion:</label>
+    <label for="direccion" data-translate="direccion">Direccion:</label>
     <input type="text" id="direccion" name="direccion">
 
-    <button type="button" onclick="">Agregar Evento</button>
-    <button type="button" onclick="volver()">Volver</button>
-    <button type="button" onclick="Cancelar()">Cancelar</button>
+    <button type="button" onclick="" data-translate="agregar">Agregar Evento</button>
+    <button type="button" onclick="volver()" data-translate="volver">Volver</button>
+    <button type="button" onclick="Cancelar()" data-translate="cancelar">Cancelar</button>
   </form>
 </div>
 
@@ -116,6 +129,39 @@ function Cancelar() {
 }
 function volver() {
     window.location.href = "../index.html";
+}
+
+function changeLanguage(language) {
+    const translations = {
+        'es': {
+            'eventos': 'Eventos',
+            'nombre': 'Nombre:',
+            'fecha': 'Fecha:',
+            'matricula': 'Matricula:',
+            'direccion': 'Direccion:',
+            'agregar': 'Agregar Evento',
+            'volver': 'Volver',
+            'cancelar': 'Cancelar'
+        },
+        'en': {
+            'eventos': 'Events',
+            'nombre': 'Name:',
+            'fecha': 'Date:',
+            'matricula': 'Enrollment:',
+            'direccion': 'Address:',
+            'agregar': 'Add Event',
+            'volver': 'Back',
+            'cancelar': 'Cancel'
+        }
+    };
+
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[language][key]) {
+            element.textContent = translations[language][key];
+        }
+    });
 }
 
 const daltonismoBtn = document.getElementById('daltonismo-btn');
