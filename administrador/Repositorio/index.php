@@ -15,8 +15,6 @@
     <div>
       <h3>Usa esta opcion para subir una sola imagen:</h3>
       <form action="guardar.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="nombre" placeholder="Nombre..." value=""/>
-        <label for="singleFile">Selecciona la imagen:</label>
         <input type="file" id="singleFile" name="singleFile" accept=".JPEG,.PNG,.JPG, .jpg, .jpeg, .png">
         <br><br>
         <input type="submit" value="Aceptar">
@@ -25,8 +23,6 @@
     <div>
     <h3>Usa esta opcion para subir multiples imagenes:</h3>
       <form action="guardar.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="nombre" placeholder="Nombre..." value=""/>
-        <label for="multiFiles">Selecciona las imagenes:</label>
         <input type="file" id="multiFiles" name="multiFiles[]" multiple accept=".JPEG,.PNG,.JPG">
         <br><br>
         <input type="submit" value="Aceptar">
