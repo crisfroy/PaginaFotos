@@ -122,7 +122,7 @@
 
 <header>
     <div class="toolbar">
-        <a href="index.html" class="product-link">Inicio</a>
+        <a href="index.php" class="product-link">Inicio</a>
         <button class="cart-button" onclick="toggleCart()">🛒</button>
     </div>
 </header>
