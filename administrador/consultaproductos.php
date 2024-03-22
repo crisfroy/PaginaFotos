@@ -8,7 +8,7 @@ function mis_productos($conn) {
     // Verificar si hay resultados
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $id = $row["id"];
+            $id = $row["id_producto"];
             $nombre = $row["producto"];
             $precio = $row["precio"];
 
