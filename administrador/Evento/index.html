@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Ejemplo</title>
+<link rel="stylesheet" href="css_index.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Eventos</h1>
+  <form id="evento">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+
+    <label for="fecha">Fecha:</label>
+    <input type="text" id="fecha" name="fecha">
+
+    <label for="matricula">Matricula:</label>
+    <input type="text" id="matricula" name="matricula">
+
+    <label for="direccion">Direccion:</label>
+    <input type="text" id="direccion" name="direccion">
+
+    <button type="button" onclick="limpiarFormulario()">Cancelar</button>
+  </form>
+</div>
+
+<script>
+function limpiarFormulario() {
+  document.getElementById("evento").reset();
+}
+</script>
+
+</body>
+</html>
