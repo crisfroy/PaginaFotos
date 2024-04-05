@@ -94,20 +94,20 @@ button:hover {
 
 <div class="container">
   <h1 data-translate="eventos">Eventos</h1>
-  <form id="evento">
+  <form id="evento" method="post" action="listaevento.php">
     <label for="nombre" data-translate="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre">
+    <input type="text" id="nombre" name="nombre" required>
 
     <label for="fecha" data-translate="fecha">Fecha:</label>
-    <input type="text" id="fecha" name="fecha">
+    <input type="text" id="fecha" name="fecha" required>
 
     <label for="matricula" data-translate="matricula">Matricula:</label>
-    <input type="text" id="matricula" name="matricula">
+    <input type="text" id="matricula" name="matricula" required>
 
     <label for="direccion" data-translate="direccion">Direccion:</label>
-    <input type="text" id="direccion" name="direccion">
+    <input type="text" id="direccion" name="direccion" required>
 
-    <button type="button" onclick="AgregarEvento()" data-translate="agregar">Agregar Evento</button>
+    <button type="submit" data-translate="agregar">Agregar Evento</button>
     <button type="button" onclick="redirectToAdminPage()" data-translate="volver">Volver</button>
     <button type="button" onclick="Cancelar()" data-translate="cancelar">Cancelar</button>
   </form>
@@ -123,8 +123,9 @@ function Cancelar() {
   document.getElementById("evento").reset();
 }
 
-function volver() {
-    window.location.href = "../index.php";
+function redirectToAdminPage() {
+    // Reemplaza 'url-de-tu-pagina-administrador' con la URL real de tu página de administrador
+    window.location.href = '../';
 }
 
 function changeLanguage(language) {
@@ -174,14 +175,7 @@ daltonismoBtn.addEventListener('click', () => {
   }
 });
 
-function redirectToAdminPage() {
-    // Reemplaza 'url-de-tu-pagina-administrador' con la URL real de tu página de administrador
-    window.location.href = '../';
-}
-
 function AgregarEvento() {
-  // Aquí iría el código para agregar el evento en la base de datos
-
   // Generar el contenido de la URL a la que se redirigirá el código QR
   const url = '/imagenes/index.php?id'; // Reemplaza 'URL_DE_TU_PAGINA' con la URL real
 

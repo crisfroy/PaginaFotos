@@ -116,12 +116,27 @@
         #checkoutBtn:hover {
             background-color: #a52a25; /* Color rojo más oscuro al pasar el mouse */
         }
+
+        .back-button {
+            background-color: #c9302c; /* Color rojo oscuro */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #a52a25; /* Color rojo más oscuro al pasar el mouse */
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div class="toolbar">
+        <button class="back-button" onclick="regresar()"><i class="fas fa-arrow-left"></i> Regresar</button>
         <a href="index.php" class="product-link">Inicio</a>
         <button class="cart-button" onclick="toggleCart()">🛒</button>
     </div>
@@ -164,6 +179,10 @@
     function toggleCart() {
         var cart = document.getElementById("cart");
         cart.style.display = cart.style.display === "none" ? "block" : "none";
+    }
+
+    function regresar() {
+        window.location.href = "../";
     }
 </script>
 
