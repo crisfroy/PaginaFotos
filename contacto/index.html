@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Ejemplo</title>
+<style>
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #333;
+        color: #111010;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 400px;
+        padding: 20px;
+        background-color: #da3a34;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .navbar {
+        background-color: #571515;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    h1 {
+        background-color: #da3a34; /* Color rojo */
+        color: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    div {
+        background-color: #d9534f; /* Color rojo */
+        padding: 20px;
+        margin: 20px;
+        border-radius: 0px;
+        text-align: center;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #e72f29;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #c9302c; /* Color rojo oscuro */
+        color: white;
+        background-color: #c70b05;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #a52a25; /* Color rojo más oscuro al pasar el mouse */
+    }
+
+    .idioma-btn {
+        background-color: #e91e17; /* Color rojo oscuro */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <button id="daltonismo-btn" class="daltonismo-btn">Daltonismo</button>
+    <button id="espanol-btn" class="idioma-btn" onclick="changeLanguage('es')">Español</button>
+    <button id="ingles-btn" class="idioma-btn" onclick="changeLanguage('en')">Inglés</button>
+</div>
+
+<div class="container">
+  <h1 data-translate="contactos">Contacto</h1>
+  <form id="contacto">
+    <label for="nombre" data-translate="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+
+    <label for="apellidos" data-translate="apellidos">Apellidos:</label>
+    <input type="text" id="apellido" name="apellido">
+
+    <label for="email" data-translate="email">Email:</label>
+    <input type="text" id="email" name="email">
+
+    <label for="telefono" data-translate="telefono">Telefono:</label>
+    <input type="text" id="telefono" name="telefono">
+
+    <label for="direccion" data-translate="direccion">Direccion:</label>
+    <input type="text" id="direccion" name="direccion">
+
+    <button type="button" onclick="" data-translate="agregar">Agregar contacto</button>
+    <button type="button" onclick="redirectToAdminPage()" data-translate="volver">Volver</button>
+    <button type="button" onclick="Cancelar()" data-translate="cancelar">Cancelar</button>
+  </form>
+</div>
+
+<script>
+function Cancelar() {
+  document.getElementById("evento").reset();
+}
+function volver() {
+    window.location.href = "../index.php";
+}
+
+function changeLanguage(language) {
+    const translations = {
+        'es': {
+            'contactos': 'Contacto',
+            'nombre': 'Nombre:',
+            'apellidos': 'Apellidos:',
+            'email': 'Email:',
+            'telefono': 'Telefono:',
+            'direccion': 'Direccion:',
+            'agregar': 'Agregar contacto',
+            'volver': 'Volver',
+            'cancelar': 'Cancelar'
+        },
+        'en': {
+            'contactos': 'Contact',
+            'nombre': 'Name:',
+            'apellidos': 'last name:',
+            'email': 'Email:',
+            'telefono': 'Phone:',
+            'direccion': 'Address:',
+            'agregar': 'Add Event',
+            'volver': 'Return',
+            'cancelar': 'Cancel'
+        }
+    };
+
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[language][key]) {
+            element.textContent = translations[language][key];
+        }
+    });
+}
+
+const daltonismoBtn = document.getElementById('daltonismo-btn');
+const container = document.querySelector('.container');
+
+let isDaltonismo = false;
+
+daltonismoBtn.addEventListener('click', () => {
+  isDaltonismo = !isDaltonismo;
+  if (isDaltonismo) {
+    document.body.style.filter = "grayscale(100%)";
+  } else {
+    document.body.style.filter = "none";
+  }
+});
+
+function redirectToAdminPage() {
+    // Reemplaza 'url-de-tu-pagina-administrador' con la URL real de tu página de administrador
+    window.location.href = '../';
+}
+
+</script>
+
+</body>
+</html>
