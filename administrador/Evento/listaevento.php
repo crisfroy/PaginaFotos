@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lista de Eventos</title>
 <style>
-  table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-  }
+}
 
-  th, td {
+th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-  }
+}
 
-  th {
+th {
     background-color: #f2f2f2;
-  }
+}
 </style>
 </head>
 <body>
@@ -38,9 +38,9 @@
   <?php
   // Conectar a la base de datos (cambiar los datos según tu configuración)
   $servername = "localhost";
-  $username = "tu_usuario";
-  $password = "tu_contraseña";
-  $dbname = "tu_base_de_datos";
+  $username = "root";
+  $password = "";
+  $dbname = "imagenescano";
 
   $conn = new mysqli($servername, $username, $password, $dbname);
 
