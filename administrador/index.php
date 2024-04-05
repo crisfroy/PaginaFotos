@@ -90,19 +90,20 @@
         }
       
         // Consulta para obtener los eventos
-        $sql = "SELECT nombre, fecha, matricula, direccion FROM evento";
+        $sql = "SELECT * FROM evento";
         $result = $conn->query($sql);
       
         if ($result->num_rows > 0) {
           // Mostrar los eventos en la tabla
-          while($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row["nombre"] . "</td>";
-            echo "<td>" . $row["fecha"] . "</td>";
-            echo "<td>" . $row["matricula"] . "</td>";
-            echo "<td>" . $row["direccion"] . "</td>";
-            echo "</tr>";
-          }
+            while($row = $result->fetch_assoc()) {
+                echo "<tr onclick='verDetalle(" . $row["id_evento"] . ")'>";
+                echo "<td>" . $row["nombre"] . "</td>";
+                echo "<td>" . $row["fecha"] . "</td>";
+                echo "<td>" . $row["matricula"] . "</td>";
+                echo "<td>" . $row["direccion"] . "</td>";
+                echo "</tr>";
+            }
+        
         } else {
           echo "<tr><td colspan='5'>No hay eventos registrados</td></tr>";
         }
@@ -114,6 +115,10 @@
 </div>
 
 <script>
+    function verDetalle(id) {
+        window.location.href = "Repositorio/index.php?id=" + id;
+    }
+
     function agregarProducto() {
         window.location.href = "AgregarProductos.html";
     }

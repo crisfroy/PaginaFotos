@@ -1,0 +1,37 @@
+@import url('../../colors_css.css');
+
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial;
+}
+header{
+	width: 100%;
+    padding: 20px;
+	background: var(--colorRadient_base);
+	position: fixed;
+	box-shadow: 0px 1px 3px #000;
+	justify-content: center; 
+    align-items: center;
+}
+#contenido{
+    padding: 100px 50px;
+	display: flex;
+}
+#contenido div{
+	padding: 40px;
+}
+#lista_fotos{
+	list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#lista_fotos li{
+	margin: 20px;
+}
+#lista_fotos .imagen{
+	width: 400px;
+	padding: 10px;
+	box-shadow: 0 0 10px 1px #000;
+}

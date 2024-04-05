@@ -5,93 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulario de Ejemplo</title>
 <style>
-
 *{
     margin: 0%;
     padding: 0%;
 }
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #333;
-        color: #111010;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-    }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #111010;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
 
-    .container {
-        width: 400px;
-        padding: 20px;
-        background-color: #da3a34;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-    }
+.container {
+    width: 400px;
+    padding: 20px;
+    background-color: #da3a34;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
 
-    .navbar {
-        background-color: #571515;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-    }
+.navbar {
+    background-color: #571515;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
-    h1 {
-        background-color: #da3a34; /* Color rojo */
-        color: white;
-        padding: 15px;
-        margin-bottom: 20px;
-        text-align: center;
-    }
+h1 {
+    background-color: #da3a34; /* Color rojo */
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-    div {
-        background-color: #d9534f; /* Color rojo */
-        padding: 20px;
-        margin: 20px;
-        border-radius: 0px;
-        text-align: center;
-    }
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e72f29;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
 
-    input[type="text"] {
-        width: calc(100% - 20px);
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #e72f29;
-        border-radius: 3px;
-        box-sizing: border-box;
-    }
+button {
+    background-color: #c9302c; /* Color rojo oscuro */
+    color: white;
+    background-color: #c70b05;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-    button {
-        background-color: #c9302c; /* Color rojo oscuro */
-        color: white;
-        background-color: #c70b05;
-        border: none;
-        padding: 10px 20px;
-        margin: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+button:hover {
+    background-color: #a52a25; /* Color rojo más oscuro al pasar el mouse */
+}
 
-    button:hover {
-        background-color: #a52a25; /* Color rojo más oscuro al pasar el mouse */
-    }
-
-    .idioma-btn {
-        background-color: #e91e17; /* Color rojo oscuro */
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
+.idioma-btn {
+    background-color: #e91e17; /* Color rojo oscuro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 </style>
 </head>
 <body>
@@ -117,16 +107,22 @@
     <label for="direccion" data-translate="direccion">Direccion:</label>
     <input type="text" id="direccion" name="direccion">
 
-    <button type="button" onclick="" data-translate="agregar">Agregar Evento</button>
+    <button type="button" onclick="AgregarEvento()" data-translate="agregar">Agregar Evento</button>
     <button type="button" onclick="redirectToAdminPage()" data-translate="volver">Volver</button>
     <button type="button" onclick="Cancelar()" data-translate="cancelar">Cancelar</button>
   </form>
+
+  <!-- Contenedor para el código QR -->
+  <div id="qrcode"></div>
 </div>
 
+<!-- Código JavaScript para generar el código QR -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@latest/dist/qrcode.min.js"></script>
 <script>
 function Cancelar() {
   document.getElementById("evento").reset();
 }
+
 function volver() {
     window.location.href = "../index.php";
 }
@@ -183,6 +179,15 @@ function redirectToAdminPage() {
     window.location.href = '../';
 }
 
+function AgregarEvento() {
+  // Aquí iría el código para agregar el evento en la base de datos
+
+  // Generar el contenido de la URL a la que se redirigirá el código QR
+  const url = 'URL_DE_TU_PAGINA'; // Reemplaza 'URL_DE_TU_PAGINA' con la URL real
+
+  // Generar el código QR con la URL especificada
+  new QRCode(document.getElementById("qrcode"), url);
+}
 </script>
 
 </body>
