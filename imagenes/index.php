@@ -25,11 +25,11 @@
       <?php
         $conn = new PDO('mysql:host=localhost;dbname=imagenescano', 'root', '');
 
-        $stmt = $conn->prepare('SELECT DISTINCT id_evento FROM imagen');
+        $stmt = $conn->prepare('SELECT id_evento,nombre,fecha FROM evento');
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          echo '<option value="' . $row['id_evento'] . '">' . $row['id_evento'] . '</option>';
+          echo '<option value="' . $row['id_evento'] . '">' . $row['nombre'] .' - '. $row['fecha'] . '</option>';
         }
       ?>
     </select>
