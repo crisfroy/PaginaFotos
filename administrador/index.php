@@ -62,6 +62,7 @@
 <h1>Panel de Administrador</h1>
 
 <div>
+    <button onclick="regresar()">Regresar</button>
     <button onclick="agregarProducto()">Agregar Producto</button>
     <button onclick="verProductos()">Ver Productos</button>
     <button onclick="agregarEvento()">Agregar Evento</button>
@@ -117,6 +118,10 @@
 <script>
     function verDetalle(id) {
         window.location.href = "Repositorio/index.php?id=" + id;
+    }
+
+    function regresar() {
+        window.location.href = "../";
     }
 
     function agregarProducto() {
