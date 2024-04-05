@@ -1,75 +1,44 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de Eventos</title>
-<style>
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+<?php
+// Conectar a la base de datos (cambiar los datos según tu configuración)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "imagenescano";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Error al conectar a la base de datos: " . $conn->connect_error);
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
+// Verificar si se ha enviado el formulario para agregar un evento
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Recibir los datos del formulario
+  $nombre = $_POST["nombre"];
+  $fecha = $_POST["fecha"];
+  $matricula = $_POST["matricula"];
+  $direccion = $_POST["direccion"];
 
-th {
-    background-color: #f2f2f2;
-}
-</style>
-</head>
-<body>
+  // Preparar la consulta SQL para la inserción
+  $sql_insert = "INSERT INTO evento (nombre, fecha, matricula, direccion) VALUES ('$nombre', '$fecha', '$matricula', '$direccion')";
 
-<h1>Lista de Eventos</h1>
+  // Ejecutar la consulta de inserción
+  if ($conn->query($sql_insert) === TRUE) {
+    // Obtener el ID del evento recién insertado
+    $last_id = $conn->insert_id;
 
-<table>
-  <tr>
-    <th>ID Evento</th>
-    <th>Nombre</th>
-    <th>Fecha</th>
-    <th>Matrícula</th>
-    <th>Dirección</th>
-  </tr>
+    // Construir la URL completa con el ID del evento
+    $url = "/imagenes/index.php?id=$last_id";
 
-  <?php
-  // Conectar a la base de datos (cambiar los datos según tu configuración)
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "imagenescano";
+    // Mensaje específico con la URL del evento para el usuario
+    echo "<p>Nuevo evento agregado correctamente. Para descargar las imágenes de tu evento, espera 24 horas después del evento y escanea el siguiente código QR:</p>";
 
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  if ($conn->connect_error) {
-    die("Error al conectar a la base de datos: " . $conn->connect_error);
-  }
-
-  // Consulta para obtener los eventos
-  $sql = "SELECT id_evento, nombre, fecha, matricula, direccion FROM evento";
-  $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) {
-    // Mostrar los eventos en la tabla
-    while($row = $result->fetch_assoc()) {
-      echo "<tr>";
-      echo "<td>" . $row["id_evento"] . "</td>";
-      echo "<td>" . $row["nombre"] . "</td>";
-      echo "<td>" . $row["fecha"] . "</td>";
-      echo "<td>" . $row["matricula"] . "</td>";
-      echo "<td>" . $row["direccion"] . "</td>";
-      echo "</tr>";
-    }
+    // Generar el contenido de la URL a la que se redirigirá el código QR
+    echo "<img src='https://api.qrserver.com/v1/create-qr-code/?data=$url&size=200x200' alt='Código QR'>";
   } else {
-    echo "<tr><td colspan='5'>No hay eventos registrados</td></tr>";
+    echo "Error al agregar el evento: " . $conn->error;
   }
+}
 
-  $conn->close();
-  ?>
-</table>
-
-</body>
-</html>
+$conn->close();
+?>
