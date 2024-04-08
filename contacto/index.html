@@ -104,7 +104,7 @@
 
 <div class="container">
   <h1 data-translate="contactos">Contacto</h1>
-  <form id="contacto">
+  <form id="contacto" action="registroContacto.php" method="POST">
     <label for="nombre" data-translate="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre">
 
@@ -117,10 +117,13 @@
     <label for="telefono" data-translate="telefono">Telefono:</label>
     <input type="text" id="telefono" name="telefono">
 
+    <label for="fecha" data-translate="fecha">Fecha:</label>
+    <input type="text" id="fecha" name="fecha">
+
     <label for="direccion" data-translate="direccion">Direccion:</label>
     <input type="text" id="direccion" name="direccion">
 
-    <button type="button" onclick="" data-translate="agregar">Agregar contacto</button>
+    <button type="submit" onclick="" data-translate="agregar">Agregar contacto</button>
     <button type="button" onclick="redirectToAdminPage()" data-translate="volver">Volver</button>
     <button type="button" onclick="Cancelar()" data-translate="cancelar">Cancelar</button>
   </form>
@@ -142,6 +145,7 @@ function changeLanguage(language) {
             'apellidos': 'Apellidos:',
             'email': 'Email:',
             'telefono': 'Telefono:',
+            'fecha': 'Fecha:',
             'direccion': 'Direccion:',
             'agregar': 'Agregar contacto',
             'volver': 'Volver',
@@ -153,6 +157,7 @@ function changeLanguage(language) {
             'apellidos': 'last name:',
             'email': 'Email:',
             'telefono': 'Phone:',
+            'fecha': 'Date:',
             'direccion': 'Address:',
             'agregar': 'Add Event',
             'volver': 'Return',
