@@ -63,8 +63,8 @@
 
 <div>
     <button onclick="regresar()">Regresar</button>
-    <button onclick="agregarProducto()">Agregar Producto</button>
-    <button onclick="verProductos()">Ver Productos</button>
+    <!--<button onclick="agregarProducto()">Agregar Producto</button>
+    <button onclick="verProductos()">Ver Productos</button>-->
     <button onclick="agregarEvento()">Agregar Evento</button>
 </div>
 <div>
